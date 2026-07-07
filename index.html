@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Criador de Sites & Desenvolvedor Web — Nova Esperança</title>
+    <meta name="description" content="Criação de sites profissionais em Nova Esperança, PR. Sites institucionais, catálogos, cardápios, portfólios e landing pages com WhatsApp integrado.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Criador de Sites & Desenvolvedor Web">
+    <meta property="og:description" content="Sites profissionais para seu negócio. Escolha o modelo ideal e fale comigo no WhatsApp.">
+    <meta property="og:image" content="https://share.zapia.com/a7nc38rc2mzw9jhbudc8os">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <meta name="theme-color" content="#0f0f23">
+    <link rel="manifest" href="__ZAPIA_SITE_URL__/manifest.webmanifest">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Criador de Sites">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f0f23;
+            color: #ffffff;
+            line-height: 1.6;
+            background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 15, 35, 0.85);
+            z-index: -1;
+        }
+
+        .header {
+            background: linear-gradient(135deg, rgba(15, 15, 35, 0.8) 0%, rgba(26, 26, 62, 0.8) 100%), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 20px 60px;
+            text-align: center;
+            border-bottom: 2px solid #00d4ff33;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, #00d4ff11 0%, transparent 50%);
+            animation: pulseGlow 6s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ffc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            color: #aaaacc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .modelos-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .modelos-section h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .modelos-section .subtitle {
+            text-align: center;
+            color: #8888aa;
+            margin-bottom: 50px;
+            font-size: 1.1em;
+        }
+
+        .modelos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .modelo-card {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #2a2a5e;
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .modelo-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(15,15,35,0.75) 0%, rgba(15,15,35,0.9) 100%);
+            z-index: 0;
+        }
+
+        .modelo-card > * { position: relative; z-index: 1; }
+
+        .modelo-card.card-institucional { background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=60'); }
+        .modelo-card.card-catalogo { background-image: url('https://images.unsplash.com/photo-1553729459-afe8f2e6edb0?auto=format&fit=crop&w=600&q=60'); }
+        .modelo-card.card-cardapio { background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=60'); }
+        .modelo-card.card-portfolio { background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=60'); }
+        .modelo-card.card-landing { background-image: url('https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=600&q=60'); }
+
+        .modelo-card:hover {
+            transform: translateY(-8px);
+            border-color: #00d4ff;
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.15);
+        }
+
+        .modelo-card .img-wrapper {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .modelo-card .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .modelo-card:hover .img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .modelo-card .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #00d4ff;
+            color: #0f0f23;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modelo-card .card-body {
+            padding: 25px;
+        }
+
+        .modelo-card .card-body h3 {
+            font-size: 1.3em;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .modelo-card .card-body p {
+            color: #8888aa;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .modelo-card .card-body .tag {
+            display: inline-block;
+            background: #00d4ff22;
+            color: #00d4ff;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .arrow-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+            padding-top: 15px;
+            border-top: 1px solid #2a2a5e;
+        }
+
+        .arrow-wrapper span {
+            font-size: 0.85em;
+            color: #00d4ff;
+            font-weight: 600;
+        }
+
+        .arrow-icon {
+            font-size: 1.5em;
+            animation: bounceArrow 1.2s ease-in-out infinite;
+        }
+
+        @keyframes bounceArrow {
+            0%, 100% { transform: translateX(0); opacity: 0.5; }
+            50% { transform: translateX(8px); opacity: 1; }
+        }
+
+        .features-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-section h2 {
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: #1a1a3e;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #2a2a5e;
+            transition: all 0.3s;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 15, 35, 0.85);
+            z-index: -1;
+        }
+
+        .feature-item.speed { background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=60'); }
+        .feature-item.mobile { background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=400&q=60'); }
+        .feature-item.whatsapp { background-image: url('https://images.unsplash.com/photo-1614680376739-414d95ff43df?auto=format&fit=crop&w=400&q=60'); }
+        .feature-item.editable { background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=60'); }
+
+        .feature-item:hover {
+            border-color: #00d4ff;
+            transform: scale(1.02);
+        }
+
+        .feature-item .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+
+        .feature-item p {
+            color: #8888aa;
+            font-size: 0.9em;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: #8888aa;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff, #7b2ffc);
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #555577;
+            font-size: 0.85em;
+            border-top: 1px solid #1a1a3e;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.6em; }
+            .modelos-section h2 { font-size: 1.5em; }
+            .modelos-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <h1>Criador de Sites & Desenvolvedor Web</h1>
+            <p>🚀 Sites profissionais, rápidos e otimizados para o Google. Escolha o modelo ideal para o seu negócio!</p>
+        </div>
+    </header>
+
+    <section class="modelos-section">
+        <h2>📂 Nossos Modelos de Site</h2>
+        <p class="subtitle">Clique em qualquer modelo para solicitar o seu orçamento via WhatsApp</p>
+
+        <div class="modelos-grid">
+
+            <a href="https://wa.me/5544997216961?text=Ol%C3%A1!%20Vi%20o%20modelo%20de%20%F0%9F%8F%A2%20Site%20Institucional%20no%20site%20de%20voc%C3%AAs%20e%20quero%20saber%20mais%20sobre%20esse%20modelo." target="_blank" class="modelo-card card-institucional" rel="noopener">
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Site Institucional" loading="lazy">
+                    <span class="badge">📌 Visualizar</span>
+                </div>
+                <div class="card-body">
+                    <h3>🏢 Site Institucional</h3>
+                    <p>Site profissional para sua empresa com apresentação, serviços, equipe e contato. Perfeito para se destacar no Google!</p>
+                    <div>
+                        <span class="tag">Empresas</span>
+                        <span class="tag">Google</span>
+                        <span class="tag">Contato</span>
+                    </div>
+                    <div class="arrow-wrapper">
+                        <span>Solicitar orçamento</span>
+                        <span class="arrow-icon">➡️</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://wa.me/5544997216961?text=Ol%C3%A1!%20Vi%20o%20modelo%20de%20%F0%9F%93%8B%20Cat%C3%A1logo%20de%20Produtos%20no%20site%20de%20voc%C3%AAs%20e%20quero%20saber%20mais%20sobre%20esse%20modelo." target="_blank" class="modelo-card card-catalogo" rel="noopener">
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80" alt="Catálogo de Produtos" loading="lazy">
+                    <span class="badge">📌 Visualizar</span>
+                </div>
+                <div class="card-body">
+                    <h3>📋 Catálogo de Produtos</h3>
+                    <p>Liste seus produtos com fotos, descrição e preços. Cada item com link direto para o WhatsApp. Ideal para comércios!</p>
+                    <div>
+                        <span class="tag">Produtos</span>
+                        <span class="tag">Preços</span>
+                        <span class="tag">WhatsApp</span>
+                    </div>
+                    <div class="arrow-wrapper">
+                        <span>Solicitar orçamento</span>
+                        <span class="arrow-icon">➡️</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://wa.me/5544997216961?text=Ol%C3%A1!%20Vi%20o%20modelo%20de%20%F0%9F%8D%94%20Card%C3%A1pio%20Digital%20no%20site%20de%20voc%C3%AAs%20e%20quero%20saber%20mais%20sobre%20esse%20modelo." target="_blank" class="modelo-card card-cardapio" rel="noopener">
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80" alt="Cardápio Digital" loading="lazy">
+                    <span class="badge">📌 Visualizar</span>
+                </div>
+                <div class="card-body">
+                    <h3>🍔 Cardápio Digital</h3>
+                    <p>Cardápio online para restaurantes, lanchonetes e pizzarias. Com fotos dos pratos e pedido via WhatsApp com um clique!</p>
+                    <div>
+                        <span class="tag">Restaurante</span>
+                        <span class="tag">Cardápio</span>
+                        <span class="tag">Pedidos</span>
+                    </div>
+                    <div class="arrow-wrapper">
+                        <span>Solicitar orçamento</span>
+                        <span class="arrow-icon">➡️</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://wa.me/5544997216961?text=Ol%C3%A1!%20Vi%20o%20modelo%20de%20%F0%9F%96%BC%EF%B8%8F%20Portf%C3%B3lio%20no%20site%20de%20voc%C3%AAs%20e%20quero%20saber%20mais%20sobre%20esse%20modelo." target="_blank" class="modelo-card card-portfolio" rel="noopener">
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=600&q=80" alt="Portfólio" loading="lazy">
+                    <span class="badge">📌 Visualizar</span>
+                </div>
+                <div class="card-body">
+                    <h3>🖼️ Portfólio</h3>
+                    <p>Galeria de trabalhos para fotógrafos, designers, arquitetos e artistas. Mostre seu talento com um site elegante!</p>
+                    <div>
+                        <span class="tag">Galeria</span>
+                        <span class="tag">Fotografia</span>
+                        <span class="tag">Design</span>
+                    </div>
+                    <div class="arrow-wrapper">
+                        <span>Solicitar orçamento</span>
+                        <span class="arrow-icon">➡️</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://wa.me/5544997216961?text=Ol%C3%A1!%20Vi%20o%20modelo%20de%20%F0%9F%9A%80%20Landing%20Page%20no%20site%20de%20voc%C3%AAs%20e%20quero%20saber%20mais%20sobre%20esse%20modelo." target="_blank" class="modelo-card card-landing" rel="noopener">
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Landing Page" loading="lazy">
+                    <span class="badge">📌 Visualizar</span>
+                </div>
+                <div class="card-body">
+                    <h3>🚀 Landing Page</h3>
+                    <p>Página de vendas focada em conversão. Ideal para lançar um produto, serviço ou campanha. Design que vende!</p>
+                    <div>
+                        <span class="tag">Vendas</span>
+                        <span class="tag">Conversão</span>
+                        <span class="tag">Campanha</span>
+                    </div>
+                    <div class="arrow-wrapper">
+                        <span>Solicitar orçamento</span>
+                        <span class="arrow-icon">➡️</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <section class="features-section">
+        <h2>✨ Por que escolher a gente?</h2>
+        <div class="features-grid">
+            <div class="feature-item speed">
+                <div class="icon">🚀</div>
+                <h3>Rápidos</h3>
+                <p>Carregamento instantâneo, não perca vendas por lentidão.</p>
+            </div>
+            <div class="feature-item mobile">
+                <div class="icon">📱</div>
+                <h3>100% Mobile</h3>
+                <p>Funciona perfeitamente em celulares e tablets.</p>
+            </div>
+            <div class="feature-item whatsapp">
+                <div class="icon">🔗</div>
+                <h3>WhatsApp Integrado</h3>
+                <p>Botão do WhatsApp em destaque para seus clientes falarem com você.</p>
+            </div>
+            <div class="feature-item editable">
+                <div class="icon">🔧</div>
+                <h3>Editável</h3>
+                <p>Pode alterar textos, fotos e preços quando quiser.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>💬 Quer um site igual a esses?</h2>
+        <p>Clique no botão abaixo e me chame no WhatsApp para orçamento!</p>
+        <a href="https://wa.me/5544997216961?text=Ol%C3%A1!%20Vi%20os%20modelos%20de%20site%20e%20quero%20fazer%20um%20or%C3%A7amento." class="cta-button" target="_blank" rel="noopener">Falar com o Desenvolvedor 🚀</a>
+    </section>
+
+    <footer>
+        &copy; 2025 Criador de Sites & Desenvolvedor Web — Nova Esperança, PR
+    </footer>
+
+</body>
+</html>
